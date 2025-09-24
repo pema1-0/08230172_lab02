@@ -1,5 +1,5 @@
 :root {
-  /* main color palette used for background, highlights, and text */
+  /* Main color palette for background, highlights, and text */
   --blue1: #f0e6ff;
   --blue2: #c084fc;
   --blue3: #7c3aed;
@@ -7,32 +7,31 @@
   --text: #1e1b4b; /* default text color */
 }
 
+/* Reset all elements for consistent styling */
 * {
-  /* reset margin and padding so all elements start clean */
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* make width/height include padding and border */
-  font-family: 'Poppins', sans-serif; /* consistent font throughout site */
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  /* gradient background and default text color */
+  /* Gradient background and default text color */
   background: linear-gradient(to bottom, var(--blue1), var(--blue2));
   color: var(--text);
 }
-/* HEADER STYLES */
+
+/* ===================== HEADER / NAVIGATION ===================== */
 .site-header {
-  /* sticky header at the top with light transparency and shadow */
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px); /* blur behind header for nice effect */
+  backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
-  z-index: 1000; /* stay above other elements */
+  z-index: 1000;
 }
 
 .site-header .container {
-  /* flex layout for logo and navigation */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,27 +41,24 @@ body {
 }
 
 .brand {
-  /* styling the site logo or brand name */
   font-weight: 700;
   font-size: 22px;
   color: var(--blue3);
 }
 
 .main-nav a {
-  /* basic styling for navigation links */
   margin: 0 12px;
   text-decoration: none;
   color: var(--text);
   font-weight: 600;
-  transition: 0.3s; /* smooth color change on hover */
+  transition: 0.3s;
 }
 
 .main-nav a:hover {
-  /* highlight link on hover */
   color: var(--blue3);
 }
 
-/* change color of the link when the section is active */
+/* Active link underline based on target section */
 #home:target ~ .site-header .main-nav a[href="#home"],
 #about:target ~ .site-header .main-nav a[href="#about"],
 #education:target ~ .site-header .main-nav a[href="#education"],
@@ -70,11 +66,11 @@ body {
 #projects:target ~ .site-header .main-nav a[href="#projects"],
 #contact:target ~ .site-header .main-nav a[href="#contact"] {
   color: var(--blue3);
-  border-bottom: 2px solid var(--blue3); /* underline active section */
+  border-bottom: 2px solid var(--blue3);
 }
-/* HOME SECTIONS */
+
+/* ===================== HOME SECTION ===================== */
 .home-banner {
-  /* main container for homepage banner */
   display: flex;
   max-width: 1200px;
   margin: 50px auto;
@@ -87,8 +83,8 @@ body {
   align-items: stretch;
 }
 
+/* Decorative purple circle behind the large photo */
 .photo-circle {
-  /* decorative circle behind the large photo for style */
   position: absolute;
   left: -80px;
   bottom: -50px;
@@ -100,7 +96,6 @@ body {
 }
 
 .home-left {
-  /* container for large photo, aligned bottom center */
   position: relative;
   flex: 1;
   display: flex;
@@ -110,19 +105,17 @@ body {
 }
 
 .home-large-photo {
-  /* main large photo styling */
   position: relative;
   z-index: 1;
   width: 100%;
   height: auto;
   max-height: 320px;
-  object-fit: cover; /* ensures photo fits nicely */
+  object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .home-small-top .small-photo {
-  /* small photo on top right corner */
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -132,7 +125,6 @@ body {
 }
 
 .home-center {
-  /* container for text content on home page */
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -142,56 +134,49 @@ body {
 }
 
 .home-center h1 {
-  /* main heading font size and spacing */
   font-size: 2.5rem;
   margin-bottom: 15px;
   font-weight: 700;
 }
 
 .home-center p {
-  /* paragraph text styling for description */
   font-size: 1.1rem;
   line-height: 1.6;
 }
 
 .highlight {
-  /* highlight certain text (like name) */
   color: var(--blue3);
 }
-/* PAGE SECTION*/
+
+/* ===================== PAGE SECTIONS ===================== */
 .page {
-  /* hide all sections by default */
-  display: none;
+  display: none; /* hide all sections by default */
   padding: 80px 20px;
 }
 
 .page:target {
-  /* show section when its link is clicked */
-  display: block;
+  display: block; /* show section when targeted */
 }
 
 body:not(:has(:target)) #home {
-  /* show home section if no section is selected */
-  display: block;
+  display: block; /* show home by default */
 }
 
 h2 {
-  /* section headings styling */
   color: var(--blue3);
   margin-bottom: 20px;
 }
-/* ABOUT SECTION */
+
+/* ===================== ABOUT SECTION ===================== */
 .about-container {
-  /* flex container for about section with photo and text */
   display: flex;
   align-items: center;
   gap: 30px;
   padding: 20px;
-  flex-wrap: wrap; /* wrap on smaller screens */
+  flex-wrap: wrap;
 }
 
 .about-container .about-photo {
-  /* about section photo styling */
   width: 300px;
   height: auto;
   object-fit: cover;
@@ -199,25 +184,24 @@ h2 {
 }
 
 .about-container .about-text {
-  /* text container for about section */
   flex: 1;
   max-width: 600px;
   color: var(--text);
 }
 
-/* EDUCATION SECTION */
+/* ===================== EDUCATION SECTION ===================== */
 .edu-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  justify-items: center; /* center cards horizontally */
+  justify-items: center;
 }
 
 .edu-item img {
-  width: 100%;
-  height: 160px; /* uniform height */
-  object-fit: cover; /* maintain aspect ratio */
-  border-radius: 10px;
+  width: 160px;           /* fixed width for circle */
+  height: 160px;          /* fixed height for circle */
+  border-radius: 50%;     /* circular images */
+  object-fit: cover;      /* maintain aspect ratio inside circle */
   margin-bottom: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
@@ -236,106 +220,126 @@ h2 {
 .edu-item:hover {
   transform: translateY(-5px);
 }
-/* SKILLS SECTION */
+
+/* ===================== SKILLS SECTION ===================== */
 .skills-grid {
-  /* grid layout for skills cards */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   text-align: center;
 }
-/* PROJECTS SECTION */
+
+/* ===================== PROJECTS SECTION ===================== */
 .projects-grid {
-  /* grid layout for projects cards */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
-/* CARD STYLYING */
+
+/* ===================== CARD STYLING ===================== */
 .card {
-  /* common card styling for edu, skills, projects, contact */
   background: var(--white);
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s; /* smooth hover movement */
+  transition: transform 0.3s;
 }
 
 .card:hover {
-  /* move card up slightly when hovered */
   transform: translateY(-5px);
 }
-/* CONTACTS SECTION */
+
+/* ===================== CONTACT SECTION ===================== */
 #contact {
-  /* center align contact info */
   text-align: center;
 }
 
 #contact a {
-  /* links in contact section */
   color: var(--blue3);
   font-weight: bold;
 }
-/* FOOTER */
+
+/* ===================== FOOTER ===================== */
 .site-footer {
-  /* footer style with light background and border */
   text-align: center;
   padding: 20px;
   background: rgba(255, 255, 255, 0.85);
   margin-top: 30px;
   border-top: 1px solid #ddd;
 }
-/* RESPONSIVE MEDIA QUERIES */
-@media (max-width: 600px) {
+
+/* ===================== RESPONSIVE MEDIA QUERIES ===================== */
+@media (max-width: 900px) {
   .home-banner {
-    flex-direction: column;      /* stack content vertically */
-    height: auto;                /* allow height to adjust */
-    padding: 20px;
+    flex-direction: column;
+    height: auto;
   }
-
-  .home-left {
+  .home-left, .home-center {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
+    text-align: center;
+    padding: 20px 10px;
   }
-
-  .photo-circle {
-    width: 250px;                /* smaller circle */
-    height: 250px;
-    left: -50px;
-    bottom: -30px;
-  }
-
-  .home-large-photo {
-    max-width: 90%;
-    max-height: 250px;
-  }
-
-  .home-center {
-    width: 100%;
-    text-align: center;          /* center text */
-    padding: 10px 0;
-  }
-
-  .home-center h1 {
-    font-size: 1.8rem;           /* smaller heading */
-  }
-
-  .home-center p {
-    font-size: 1rem;             /* smaller paragraph */
-  }
-
   .home-small-top {
     position: relative;
     top: 0;
     right: 0;
     margin: 10px auto;
   }
+}
 
+@media (max-width: 600px) {
+  /* Home section adjustments for phones */
+  .photo-circle {
+    display: none; /* hide decorative circle */
+  }
+  .home-large-photo {
+    max-width: 90%;
+    max-height: 250px;
+    object-fit: contain; /* show entire photo */
+    margin-bottom: 15px;
+  }
+  .home-center h1 {
+    font-size: 1.8rem;
+  }
+  .home-center p {
+    font-size: 1rem;
+  }
   .home-small-top .small-photo {
-    width: 100px;                /* smaller small photo */
-    height: 100px;
+    width: 90px;
+    height: 90px;
+  }
+
+  /* Adjust about section on small screens */
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-container .about-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  /* Adjust grids on small screens */
+  .edu-list, .skills-grid, .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Navigation wrap */
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .home-center h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  /* Very small screen tweaks */
+  .edu-item img {
+    width: 120px;
+    height: 120px;
   }
 }
