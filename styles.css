@@ -1,42 +1,38 @@
-/* ==========================
-   VARIABLES
-========================== */
 :root {
+  /* main color palette used for background, highlights, and text */
   --blue1: #f0e6ff;
   --blue2: #c084fc;
   --blue3: #7c3aed;
   --white: #fff;
-  --text: #1e1b4b;
+  --text: #1e1b4b; /* default text color */
 }
 
-/* ==========================
-   RESET STYLES
-========================== */
 * {
+  /* reset margin and padding so all elements start clean */
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box; /* make width/height include padding and border */
+  font-family: 'Poppins', sans-serif; /* consistent font throughout site */
 }
 
 body {
+  /* gradient background and default text color */
   background: linear-gradient(to bottom, var(--blue1), var(--blue2));
   color: var(--text);
 }
-
-/* ==========================
-   HEADER STYLES
-========================== */
+/* HEADER STYLES */
 .site-header {
+  /* sticky header at the top with light transparency and shadow */
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); /* blur behind header for nice effect */
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1000; /* stay above other elements */
 }
 
 .site-header .container {
+  /* flex layout for logo and navigation */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,25 +42,27 @@ body {
 }
 
 .brand {
+  /* styling the site logo or brand name */
   font-weight: 700;
   font-size: 22px;
   color: var(--blue3);
 }
 
 .main-nav a {
+  /* basic styling for navigation links */
   margin: 0 12px;
   text-decoration: none;
   color: var(--text);
   font-weight: 600;
-  transition: 0.3s;
-  border-bottom: none;
+  transition: 0.3s; /* smooth color change on hover */
 }
 
 .main-nav a:hover {
+  /* highlight link on hover */
   color: var(--blue3);
 }
 
-/* Highlight active link using :target */
+/* change color of the link when the section is active */
 #home:target ~ .site-header .main-nav a[href="#home"],
 #about:target ~ .site-header .main-nav a[href="#about"],
 #education:target ~ .site-header .main-nav a[href="#education"],
@@ -72,13 +70,11 @@ body {
 #projects:target ~ .site-header .main-nav a[href="#projects"],
 #contact:target ~ .site-header .main-nav a[href="#contact"] {
   color: var(--blue3);
-  border-bottom: 2px solid var(--blue3);
+  border-bottom: 2px solid var(--blue3); /* underline active section */
 }
-
-/* ==========================
-   HOME SECTION
-========================== */
+/* HOME SECTIONS */
 .home-banner {
+  /* main container for homepage banner */
   display: flex;
   max-width: 1200px;
   margin: 50px auto;
@@ -92,6 +88,7 @@ body {
 }
 
 .photo-circle {
+  /* decorative circle behind the large photo for style */
   position: absolute;
   left: -80px;
   bottom: -50px;
@@ -103,6 +100,7 @@ body {
 }
 
 .home-left {
+  /* container for large photo, aligned bottom center */
   position: relative;
   flex: 1;
   display: flex;
@@ -112,23 +110,19 @@ body {
 }
 
 .home-large-photo {
+  /* main large photo styling */
   position: relative;
   z-index: 1;
   width: 100%;
   height: auto;
   max-height: 320px;
-  object-fit: cover;
+  object-fit: cover; /* ensures photo fits nicely */
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-.home-small-top {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
 .home-small-top .small-photo {
+  /* small photo on top right corner */
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -138,6 +132,7 @@ body {
 }
 
 .home-center {
+  /* container for text content on home page */
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -147,54 +142,56 @@ body {
 }
 
 .home-center h1 {
+  /* main heading font size and spacing */
   font-size: 2.5rem;
   margin-bottom: 15px;
   font-weight: 700;
 }
 
 .home-center p {
+  /* paragraph text styling for description */
   font-size: 1.1rem;
   line-height: 1.6;
 }
 
 .highlight {
+  /* highlight certain text (like name) */
   color: var(--blue3);
 }
-
-/* ==========================
-   PAGE SECTIONS
-========================== */
+/* PAGE SECTION*/
 .page {
+  /* hide all sections by default */
   display: none;
   padding: 80px 20px;
 }
 
 .page:target {
+  /* show section when its link is clicked */
   display: block;
 }
 
-/* Show Home by default if no hash */
 body:not(:has(:target)) #home {
+  /* show home section if no section is selected */
   display: block;
 }
 
 h2 {
+  /* section headings styling */
   color: var(--blue3);
   margin-bottom: 20px;
 }
-
-/* ==========================
-   ABOUT SECTION
-========================== */
+/* ABOUT SECTION */
 .about-container {
+  /* flex container for about section with photo and text */
   display: flex;
   align-items: center;
   gap: 30px;
   padding: 20px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* wrap on smaller screens */
 }
 
 .about-container .about-photo {
+  /* about section photo styling */
   width: 300px;
   height: auto;
   object-fit: cover;
@@ -202,90 +199,95 @@ h2 {
 }
 
 .about-container .about-text {
+  /* text container for about section */
   flex: 1;
   max-width: 600px;
   color: var(--text);
-  padding: 0;
 }
 
-/* ==========================
-   EDUCATION SECTION
-========================== */
+/* EDUCATION SECTION REFINEMENT */
 .edu-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  justify-items: center; /* center cards horizontally */
 }
 
 .edu-item img {
-  width: 50%;
-  height: 100px;
-  object-fit: cover;
+  width: 100%;
+  height: 160px; /* uniform height */
+  object-fit: cover; /* maintain aspect ratio */
   border-radius: 10px;
   margin-bottom: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* ==========================
-   SKILLS SECTION
-========================== */
+.edu-item h3 {
+  margin: 8px 0 5px 0;
+  color: var(--blue3);
+}
+
+.edu-item p {
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.edu-item:hover {
+  transform: translateY(-5px);
+}
+/* SKILLS SECTION */
 .skills-grid {
+  /* grid layout for skills cards */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   text-align: center;
 }
-
-/* ==========================
-   PROJECTS SECTION
-========================== */
+/* PROJECTS SECTION */
 .projects-grid {
+  /* grid layout for projects cards */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
-
-/* ==========================
-   CARD STYLING
-========================== */
+/* CARD STYLYING */
 .card {
+  /* common card styling for edu, skills, projects, contact */
   background: var(--white);
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+  transition: transform 0.3s; /* smooth hover movement */
 }
 
 .card:hover {
+  /* move card up slightly when hovered */
   transform: translateY(-5px);
 }
-
-/* ==========================
-   CONTACT SECTION
-========================== */
+/* CONTACTS SECTION */
 #contact {
+  /* center align contact info */
   text-align: center;
 }
 
 #contact a {
+  /* links in contact section */
   color: var(--blue3);
   font-weight: bold;
 }
-
-/* ==========================
-   FOOTER
-========================== */
+/* FOOTER */
 .site-footer {
+  /* footer style with light background and border */
   text-align: center;
   padding: 20px;
   background: rgba(255, 255, 255, 0.85);
   margin-top: 30px;
   border-top: 1px solid #ddd;
 }
-
-/* ==========================
-   RESPONSIVE MEDIA QUERIES
-========================== */
+/* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 900px) {
+  /* adjust home section for medium screens */
   .home-banner {
     flex-direction: column;
     height: auto;
@@ -304,6 +306,7 @@ h2 {
 }
 
 @media (max-width: 600px) {
+  /* adjust about, edu, skills, projects for small screens */
   .about-container {
     flex-direction: column;
     align-items: center;
@@ -312,14 +315,8 @@ h2 {
     max-width: 100%;
     text-align: center;
   }
-  .edu-list {
-    grid-template-columns: 1fr;
-  }
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-  .projects-grid {
-    grid-template-columns: 1fr;
+  .edu-list, .skills-grid, .projects-grid {
+    grid-template-columns: 1fr; /* one column for small screens */
   }
   .main-nav {
     display: flex;
@@ -328,6 +325,6 @@ h2 {
     gap: 10px;
   }
   .home-center h1 {
-    font-size: 2rem;
+    font-size: 2rem; /* smaller heading on small screens */
   }
 }
