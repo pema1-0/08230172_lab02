@@ -21,7 +21,7 @@ body {
   color: var(--text);
 }
 
-/* ===================== HEADER / NAVIGATION ===================== */
+/* HEADER / NAVIGATION  */
 .site-header {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
@@ -69,7 +69,7 @@ body {
   border-bottom: 2px solid var(--blue3);
 }
 
-/* ===================== HOME SECTION ===================== */
+/*  HOME SECTION  */
 .home-banner {
   display: flex;
   max-width: 1200px;
@@ -148,7 +148,7 @@ body {
   color: var(--blue3);
 }
 
-/* ===================== PAGE SECTIONS ===================== */
+/*  PAGE SECTIONS  */
 .page {
   display: none; /* hide all sections by default */
   padding: 80px 20px;
@@ -167,7 +167,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* ===================== ABOUT SECTION ===================== */
+/*  ABOUT SECTION  */
 .about-container {
   display: flex;
   align-items: center;
@@ -189,39 +189,56 @@ h2 {
   color: var(--text);
 }
 
-/* ===================== EDUCATION SECTION ===================== */
+/*  EDUCATION SECTION  */
 .edu-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* columns for each card */
   gap: 20px;
   justify-items: center;
 }
 
+/*  cards */
+.edu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 15px;          /* padding for height */
+  width: 180px;           /* column fit */
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
 .edu-item img {
-  width: 160px;           /* fixed width for circle */
-  height: 160px;          /* fixed height for circle */
-  border-radius: 50%;     /* circular images */
-  object-fit: cover;      /* maintain aspect ratio inside circle */
-  margin-bottom: 10px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;     /* circular image */
+  object-fit: cover;
+  margin-bottom: 5px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .edu-item h3 {
-  margin: 8px 0 5px 0;
+  margin: 5px 0 3px 0;
   color: var(--blue3);
+  font-size: 1rem;
 }
 
 .edu-item p {
-  text-align: center;
-  font-size: 0.95rem;
-  line-height: 1.4;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  margin: 0;
+  padding: 0 5px;
 }
 
 .edu-item:hover {
   transform: translateY(-5px);
 }
 
-/* ===================== SKILLS SECTION ===================== */
+/*  SKILLS SECTION  */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -229,14 +246,14 @@ h2 {
   text-align: center;
 }
 
-/* ===================== PROJECTS SECTION ===================== */
+/* PROJECTS SECTION  */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-/* ===================== CARD STYLING ===================== */
+/*  CARD STYLING  */
 .card {
   background: var(--white);
   border-radius: 12px;
@@ -249,7 +266,7 @@ h2 {
   transform: translateY(-5px);
 }
 
-/* ===================== CONTACT SECTION ===================== */
+/*  CONTACT SECTION */
 #contact {
   text-align: center;
 }
@@ -259,7 +276,7 @@ h2 {
   font-weight: bold;
 }
 
-/* ===================== FOOTER ===================== */
+/*  FOOTER  */
 .site-footer {
   text-align: center;
   padding: 20px;
@@ -268,8 +285,9 @@ h2 {
   border-top: 1px solid #ddd;
 }
 
-/* ===================== RESPONSIVE MEDIA QUERIES ===================== */
+/*  RESPONSIVE MEDIA QUERIES  */
 @media (max-width: 900px) {
+  /* home section adjustment*/
   .home-banner {
     flex-direction: column;
     height: auto;
@@ -286,6 +304,10 @@ h2 {
     margin: 10px auto;
   }
 }
+ /* Education, Skills, Projects adjustments */
+  .edu-list, .skills-grid, .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
 
 @media (max-width: 600px) {
   /* Home section adjustments for phones */
@@ -309,7 +331,7 @@ h2 {
     height: 90px;
   }
 
-  /* Adjust about section on small screens */
+  /* About section adjustments */
   .about-container {
     flex-direction: column;
     align-items: center;
@@ -319,9 +341,9 @@ h2 {
     text-align: center;
   }
 
-  /* Adjust grids on small screens */
+  /* All grids adjustments */
   .edu-list, .skills-grid, .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* single column */
   }
 
   /* Navigation wrap */
@@ -331,9 +353,6 @@ h2 {
     justify-content: center;
     gap: 10px;
   }
-  .home-center h1 {
-    font-size: 2rem;
-  }
 }
 
 @media (max-width: 400px) {
@@ -341,5 +360,4 @@ h2 {
   .edu-item img {
     width: 120px;
     height: 120px;
-  }
-}
+  }}
