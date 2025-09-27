@@ -1,13 +1,13 @@
 :root {
-  /* Main color palette for background, highlights, and text */
+  /* color values I will be using across the website */
   --blue1: #f0e6ff;
   --blue2: #c084fc;
   --blue3: #7c3aed;
   --white: #fff;
-  --text: #1e1b4b; /* default text color */
+  --text: #1e1b4b; /* main text color */
 }
 
-/* Reset all elements for consistent styling */
+/* reset browser defaults and apply the font */
 * {
   margin: 0;
   padding: 0;
@@ -16,12 +16,12 @@
 }
 
 body {
-  /* Gradient background and default text color */
+  /* overall background with gradient and default text color */
   background: linear-gradient(to bottom, var(--blue1), var(--blue2));
   color: var(--text);
 }
 
-/* HEADER / NAVIGATION  */
+/* ---------------- HEADER / NAVIGATION ---------------- */
 .site-header {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
@@ -58,7 +58,7 @@ body {
   color: var(--blue3);
 }
 
-/* Active link underline based on target section */
+/* highlight the active link depending on which section is open */
 #home:target ~ .site-header .main-nav a[href="#home"],
 #about:target ~ .site-header .main-nav a[href="#about"],
 #education:target ~ .site-header .main-nav a[href="#education"],
@@ -69,7 +69,7 @@ body {
   border-bottom: 2px solid var(--blue3);
 }
 
-/*  HOME SECTION  */
+/* ---------------- HOME SECTION ---------------- */
 .home-banner {
   display: flex;
   max-width: 1200px;
@@ -83,7 +83,7 @@ body {
   align-items: stretch;
 }
 
-/* Decorative purple circle behind the large photo */
+/* circle background behind the photo */
 .photo-circle {
   position: absolute;
   left: -80px;
@@ -148,18 +148,18 @@ body {
   color: var(--blue3);
 }
 
-/*  PAGE SECTIONS  */
+/* ---------------- PAGE SECTIONS ---------------- */
 .page {
   display: none; /* hide all sections by default */
   padding: 80px 20px;
 }
 
 .page:target {
-  display: block; /* show section when targeted */
+  display: block; /* show section when clicked */
 }
 
 body:not(:has(:target)) #home {
-  display: block; /* show home by default */
+  display: block; /* home page is open by default */
 }
 
 h2 {
@@ -167,7 +167,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-/*  ABOUT SECTION  */
+/* ---------------- ABOUT SECTION ---------------- */
 .about-container {
   display: flex;
   align-items: center;
@@ -189,33 +189,33 @@ h2 {
   color: var(--text);
 }
 
-/*  EDUCATION SECTION  */
+/* ---------------- EDUCATION SECTION ---------------- */
 .edu-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* columns for each card */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   justify-items: center;
 }
 
-/*  cards */
 .edu-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 8px;
-  padding: 15px;          /* padding for height */
-  width: 180px;           /* column fit */
+  padding: 15px;          
+  width: 180px;           
   background: var(--white);
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 1px solid #ddd;
   transition: transform 0.3s;
 }
 
 .edu-item img {
   width: 140px;
   height: 140px;
-  border-radius: 50%;     /* circular image */
+  border-radius: 50%;     
   object-fit: cover;
   margin-bottom: 5px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -238,7 +238,7 @@ h2 {
   transform: translateY(-5px);
 }
 
-/*  SKILLS SECTION  */
+/* ---------------- SKILLS SECTION ---------------- */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -246,14 +246,14 @@ h2 {
   text-align: center;
 }
 
-/* PROJECTS SECTION  */
+/* ---------------- PROJECTS SECTION ---------------- */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-/*  CARD STYLING  */
+/* card used in skills and projects */
 .card {
   background: var(--white);
   border-radius: 12px;
@@ -266,7 +266,7 @@ h2 {
   transform: translateY(-5px);
 }
 
-/*  CONTACT SECTION */
+/* ---------------- CONTACT SECTION ---------------- */
 #contact {
   text-align: center;
 }
@@ -276,7 +276,7 @@ h2 {
   font-weight: bold;
 }
 
-/*  FOOTER  */
+/* ---------------- FOOTER ---------------- */
 .site-footer {
   text-align: center;
   padding: 20px;
@@ -285,9 +285,9 @@ h2 {
   border-top: 1px solid #ddd;
 }
 
-/*  RESPONSIVE MEDIA QUERIES  */
+/* ---------------- RESPONSIVE PART ---------------- */
 @media (max-width: 900px) {
-  /* home section adjustment*/
+  /* home layout changes for medium screens */
   .home-banner {
     flex-direction: column;
     height: auto;
@@ -303,35 +303,56 @@ h2 {
     right: 0;
     margin: 10px auto;
   }
-}
- /* Education, Skills, Projects adjustments */
+
+  /* adjust grid layouts so they fit smaller screens */
   .edu-list, .skills-grid, .projects-grid {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
+}
 
 @media (max-width: 600px) {
-  /* Home section adjustments for phones */
+  /* home section changes for smaller screens */
+  .home-banner {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+  }
+
   .photo-circle {
-    display: none; /* hide decorative circle */
+    width: 220px;
+    height: 220px;
+    left: -40px;
+    bottom: -30px;
   }
+
   .home-large-photo {
-    max-width: 90%;
-    max-height: 250px;
-    object-fit: contain; /* show entire photo */
-    margin-bottom: 15px;
+    max-width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    margin: 0 auto 15px;
   }
+
+  .home-center {
+    text-align: center;
+    padding: 15px;
+  }
+
   .home-center h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    line-height: 1.2;
   }
+
   .home-center p {
     font-size: 1rem;
+    line-height: 1.4;
   }
+
   .home-small-top .small-photo {
     width: 90px;
     height: 90px;
   }
 
-  /* About section adjustments */
+  /* about text stacked for small screens */
   .about-container {
     flex-direction: column;
     align-items: center;
@@ -341,12 +362,22 @@ h2 {
     text-align: center;
   }
 
-  /* All grids adjustments */
-  .edu-list, .skills-grid, .projects-grid {
-    grid-template-columns: 1fr; /* single column */
+  /* education section stays in side by side grid */
+  .edu-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    justify-items: center;
   }
 
-  /* Navigation wrap */
+  .edu-item {
+    width: 100%;
+    max-width: 220px;
+    border: 1px solid #ccc;
+    padding: 12px;
+  }
+
+  /* wrap navigation links neatly */
   .main-nav {
     display: flex;
     flex-wrap: wrap;
@@ -356,8 +387,9 @@ h2 {
 }
 
 @media (max-width: 400px) {
-  /* Very small screen tweaks */
+  /* reduce image size for very small devices */
   .edu-item img {
     width: 120px;
     height: 120px;
-  }}
+  }
+}
