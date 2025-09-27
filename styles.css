@@ -86,10 +86,10 @@ body {
 /* circle background behind the photo */
 .photo-circle {
   position: absolute;
-  left: -80px;
-  bottom: -50px;
-  width: 400px;
-  height: 400px;
+  left: -60px;   /* adjusted */
+  bottom: -80px; /* adjusted */
+  width: 320px;  /* adjusted */
+  height: 320px;
   background: #d1b3ff;
   border-radius: 50%;
   z-index: 0;
@@ -192,9 +192,9 @@ h2 {
 /* ---------------- EDUCATION SECTION ---------------- */
 .edu-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* wider cards */
   gap: 20px;
-  justify-items: center;
+  justify-items: stretch;
 }
 
 .edu-item {
@@ -203,8 +203,8 @@ h2 {
   align-items: center;
   text-align: center;
   gap: 8px;
-  padding: 15px;          
-  width: 180px;           
+  padding: 18px;          
+  width: 100%;
   background: var(--white);
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
@@ -306,7 +306,7 @@ h2 {
 
   /* adjust grid layouts so they fit smaller screens */
   .edu-list, .skills-grid, .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 
@@ -319,10 +319,10 @@ h2 {
   }
 
   .photo-circle {
-    width: 220px;
-    height: 220px;
-    left: -40px;
-    bottom: -30px;
+    width: 180px;
+    height: 180px;
+    left: -30px;
+    bottom: -60px;
   }
 
   .home-large-photo {
@@ -362,19 +362,14 @@ h2 {
     text-align: center;
   }
 
-  /* education section stays in side by side grid */
+  /* education section full width on small screens */
   .edu-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-    justify-items: center;
+    grid-template-columns: 1fr;
   }
 
   .edu-item {
-    width: 100%;
-    max-width: 220px;
-    border: 1px solid #ccc;
-    padding: 12px;
+    max-width: 100%;
+    padding: 15px;
   }
 
   /* wrap navigation links neatly */
