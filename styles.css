@@ -86,10 +86,10 @@ body {
 /* circle background behind the photo */
 .photo-circle {
   position: absolute;
-  left: -60px;   /* adjusted */
-  bottom: -20px; /* adjusted */
-  width: 320px;  /* adjusted */
-  height: 320px;
+  left: -80px;   /* adjusted */
+  bottom: -50px; /* adjusted */
+  width: 400px;  /* adjusted */
+  height: 400px;
   background: #d1b3ff;
   border-radius: 50%;
   z-index: 0;
