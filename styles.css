@@ -87,7 +87,7 @@ body {
 .photo-circle {
   position: absolute;
   left: -60px;   /* adjusted */
-  bottom: -80px; /* adjusted */
+  bottom: -20px; /* adjusted */
   width: 320px;  /* adjusted */
   height: 320px;
   background: #d1b3ff;
